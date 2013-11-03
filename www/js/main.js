@@ -1,13 +1,13 @@
 require.config({
     baseUrl: 'js',
     paths: {
-        zepto:          'lib/zepto',
-        deferred:       'lib/Deferred',
-        underscore:     'lib/underscore',
-        backbone:       'lib/backbone',
-        marionette:     'lib/backbone.marionette',
-        handlebars:     'lib/handlebars',
-        templates:      '../templates'
+        zepto:      'lib/zepto',
+        deferred:   'lib/Deferred',
+        underscore: 'lib/underscore',
+        backbone:   'lib/backbone',
+        marionette: 'lib/backbone.marionette',
+        handlebars: 'lib/handlebars',
+        templates:  'templates'
     },
     shim: {
         deferred: {
@@ -19,25 +19,25 @@ require.config({
         zepto: {
             exports: 'Zepto'
         },
-        underscore : {
-            exports : '_'
+        underscore: {
+            exports: '_'
         },
-        backbone : {
-            deps : ['zepto', 'underscore'],
-            exports : 'Backbone'
+        backbone: {
+            deps: ['zepto', 'underscore'],
+            exports: 'Backbone'
         },
-        marionette : {
-            deps : ['zepto', 'deferred', 'underscore', 'backbone'],
-            exports : 'Marionette'
+        marionette: {
+            deps: ['zepto', 'deferred', 'underscore', 'backbone'],
+            exports: 'Marionette'
         }
     }
 });
 
-require(['app'], function(app) {
+require(['app'], function (app) {
     app.initialize();
 });
 
-require(['zepto', 'modules/moduleA', 'modules/moduleB'], function($, moduleA, moduleB) {
+require(['zepto', 'modules/moduleA', 'modules/moduleB'], function ($, moduleA, moduleB) {
     $('body')
         .prepend(moduleA.html)
         .prepend(moduleB.html);

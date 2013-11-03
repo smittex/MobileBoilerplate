@@ -1,79 +1,38 @@
-define(['zepto', 'backbone', 'marionette', 'underscore', 'handlebars'],
-    function ($, Backbone, Marionette, _, Handlebars) {
-        var app = new Backbone.Marionette.Application();
+(function ($, Backbone, Marionette, _, Handlebars) {
+    'use strict';
+    var app = new Marionette.Application();
 
-        /* function isMobile() {
-         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-         return ((/iPhone|iPod|iPad|Android|BlackBerry|Opera Mini|IEMobile/).test(userAgent));
-         }*/
-
-        //Organize Application into regions corresponding to DOM elements
-        //Regions can contain views, Layouts, or subregions nested as necessary
-        app.addRegions({
-            headerRegion:   "#header",
-            mainRegion:     "#main"
-        });
-
-        app.addInitializer(function () {
-            Backbone.history.start();
-        });
-
-
-        var initialize = function(){
-            // Pass in our Router module and call it's initialize function
-            Router.initialize();
-        };
-
-        return {
-            initialize: initialize
-        };
-
-
-        function alertIP() {
-            //document.addEventListener('deviceready', app.start(), false);
-            $.get('http://bot.whatismyipaddress.com/',function(response) {
-                alert(response);
-            })
-        }
-
-
-        //alertIP();
-        // app.mobile = isMobile();
-
-        //return app;
+    //Organize Application into regions corresponding to DOM elements
+    //Regions can contain views, Layouts, or subregions nested as necessary
+    app.addRegions({
+        headerRegion: "#header",
+        mainRegion: "#main"
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-var app = new Backbone.Marionette.Application();
-app.addRegions({
-    main: '#content'
-});
-
-
-
-app.module('dal', function() {
-    dal.addInitializer(function() {
-
+    app.addInitializer(function () {
+        Backbone.history.start();
     });
-});
 
-app.module('native', function() {
+    var initialize = function () {
+        // Pass in our Router module and call it's initialize function
+        Router.initialize();
+    };
 
-});
 
-*/
+    /*
+     // What does this do?
 
+     return {
+     initialize: initialize
+     };
+     */
+
+
+    function alertIP() {
+        $.get('http://bot.whatismyipaddress.com/', function (response) {
+            alert(response);
+        })
+    }
+
+    return app;
+}($, Backbone, Marionette, _, Handlebars));
