@@ -1,22 +1,14 @@
 require.config({
     baseUrl: 'js',
     paths: {
-/*
-        jquery:         'lib/jquery',
-*/
         zepto:          'lib/zepto',
-        'handlebars':  'components/handlebars/handlebars.runtime',
-        'deferred':    'lib/deferred',
-        'zepto-custom': 'lib/zepto-custom'
+        deferred:       'lib/Deferred',
+        underscore:     'lib/underscore',
+        backbone:       'lib/backbone',
+        marionette:     'lib/backbone.marionette',
+        handlebars:     'lib/handlebars',
+        templates:      '../templates'
     },
-/*    map: {
-        '*': {
-            'zepto': 'zepto-custom'
-        },
-        'zepto-custom': {
-            'zepto': 'zepto'
-        }
-    },*/
     shim: {
         deferred: {
             exports: 'Deferred'
@@ -26,12 +18,23 @@ require.config({
         },
         zepto: {
             exports: 'Zepto'
+        },
+        underscore : {
+            exports : '_'
+        },
+        backbone : {
+            deps : ['zepto', 'underscore'],
+            exports : 'Backbone'
+        },
+        marionette : {
+            deps : ['zepto', 'deferred', 'underscore', 'backbone'],
+            exports : 'Marionette'
         }
     }
 });
 
 require(['app'], function(app) {
-    app();
+    app.initialize();
 });
 
 require(['zepto', 'modules/moduleA', 'modules/moduleB'], function($, moduleA, moduleB) {
