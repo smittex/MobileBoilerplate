@@ -1,6 +1,4 @@
-// Filename: router.js
-define(['jquery','underscore','backbone','views/home/HomeView','views/projects/ProjectsView','views/contributors/ContributorsView','views/footer/FooterView'],
-    function ($, _, Backbone, HomeView, ProjectsView, ContributorsView, FooterView) {
+var Router = (function ($, _, Backbone, HomeView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -17,6 +15,7 @@ define(['jquery','underscore','backbone','views/home/HomeView','views/projects/P
 
         var app_router = new AppRouter;
 
+/*
         app_router.on('route:showProjects', function () {
 
             // Call render on the module we loaded in via the dependency array
@@ -31,6 +30,7 @@ define(['jquery','underscore','backbone','views/home/HomeView','views/projects/P
             // handle loading and displaying data from the GitHub API
             var contributorsView = new ContributorsView();
         });
+*/
 
         app_router.on('route:defaultAction', function (actions) {
 
@@ -43,7 +43,7 @@ define(['jquery','underscore','backbone','views/home/HomeView','views/projects/P
         // the render call internally after it loads data. Further more we load it
         // outside of an on-route function to have it loaded no matter which page is
         // loaded initially.
-        var footerView = new FooterView();
+        //var footerView = new FooterView();
 
         Backbone.history.start();
     };
@@ -51,4 +51,4 @@ define(['jquery','underscore','backbone','views/home/HomeView','views/projects/P
     return {
         initialize: initialize
     };
-});
+})($, _, Backbone);

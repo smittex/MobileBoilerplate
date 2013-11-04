@@ -16,8 +16,8 @@
 -->
     </head>
     <body>
-        <section id="header" />
-        <section id="main" />
+        <section id="header"></section>
+        <section id="main"></section>
         <div id="content"></div>
 <!--        <div class="app">
             <h1>Apache Cordova</h1>
@@ -29,12 +29,27 @@
 <!--
         <script type="text/javascript" src="cordova.js"></script>
 -->
+
+        <script type="text/template" id="angry_cats-template">
+            <thead>
+            <tr class='header'>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </script>
+        <script type="text/template" id="angry_cat-template">
+            <td><%= name %></td>
+        </script>
+
         <script type="text/javascript" src="js/lib/zepto.js"></script>
         <script type="text/javascript" src="js/lib/Deferred.js"></script>
         <script type="text/javascript" src="js/lib/underscore.js"></script>
         <script type="text/javascript" src="js/lib/backbone.js"></script>
         <script type="text/javascript" src="js/lib/backbone.marionette.js"></script>
         <script type="text/javascript" src="js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="js/router.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
