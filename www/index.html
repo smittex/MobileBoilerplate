@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8" />
@@ -11,21 +10,9 @@
 <!--
         <script src="http://10.0.0.3:8000/target/target-script-min.js#anonymous"></script>
 -->
-<!--
-        <script src="js/lib/require.js" data-main="js/main"></script>
--->
     </head>
     <body>
-        <section id="header"></section>
         <section id="main"></section>
-        <div id="content"></div>
-<!--        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>-->
 <!--
         <script type="text/javascript" src="cordova.js"></script>
 -->
@@ -39,10 +26,14 @@
             <tbody>
             </tbody>
         </script>
+
         <script type="text/template" id="angry_cat-template">
             <td><%= name %></td>
         </script>
 
+        <script type="text/template" id="header-template">
+            Header
+        </script>
         <script type="text/javascript" src="js/lib/zepto.js"></script>
         <script type="text/javascript" src="js/lib/Deferred.js"></script>
         <script type="text/javascript" src="js/lib/underscore.js"></script>
